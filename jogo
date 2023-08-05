@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+from multiprocessing.spawn import import_main_path
+import subprocess
+import os
+from random import choice
+import time
+import string
+from random import choice
+while True:
+    num1 = str(string.digits)
+    num2 = choice(num1)
+    num3 = choice(['\033[1;34m #Você perdeu :(', '\033[1;34m #Oi amigo você perdeu', ' \033[1;34m#Mais uma tentativa, você perdeu', '\033[1;34m #Se esforça, você perdeu'])
+    x = input(('\033[1;33m[\033[1;36m+\033[1;33m] \033[1;31mDe 0 a 9 dijite um numero de sorte >\033[1;33m '))
+    if x.isdigit():
+        if num2 == x:
+            time.sleep(3)
+            os.system('clear')
+            print(("\033[1;33m[\033[1;36m*\033[1;33m]\033[1;32m O numero sorteado è \033[1;31m") + num2 + ('\033[1;32m Parabens! Você ganhou...\033[1;40m'))
+            time.sleep(1)
+            os.system('figlet "Parabens * * *"')
+        #subprocess.Popen('figlet "Parabens * * *"',  shell=True)
+            break
+        elif num2 != x:
+            time.sleep(2)
+            print(('\033[1;33m[\033[1;36m¡\033[1;33m]\033[1;34m O numero sorteado é \033[1;37m')+ num2 + num3 )
+        else:
+            print('')
+    else:
+        print('\033[1;33m[\033[1;36m-\033[1;33m]\033[1;40m Por favor insira um digito de 0 a 9\033[0;00m')
+        break

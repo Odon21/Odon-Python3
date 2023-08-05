@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+import subprocess
+import time
+from gtts import gTTS
+from playsound import playsound
+subprocess.call('clear', shell=True)
+print(str('''
+> Executing "tempo"
+
+
+  ,~~~~~~~~~~~~,	   \033[1;34m[\033[1;31m*\033[1;34m]\033[1;37m  Bem vindo ao consultor de previsão de tempo \033[00;00m
+ : \033[1;32mOdon\033[1;31m -\033[00;00m Tool :	   \033[1;34m[\033[1;31m*\033[1;34m]\033[1;37m  Em caso de não reconhecer a provincia,\033[0;00m
+ : _____   __  : 	   \033[1;34m[\033[1;31m*\033[1;34m]\033[1;37m  Insira o País e a provincia \033[0;00m
+ :\033[1;31m|     | |  |\033[0;00m :	   \033[1;34m[\033[1;31m¡\033[1;34m]\033[1;37m  Ex: Moçambique Maputo\033[0;00m
+ :\033[1;31m|\033[0;00m-----\033[1;31m|\033[0;00m-\033[1;31m|  |\033[0;00m :
+ : _____\033[1;35m)\033[0;00m____  :
+ : /\033[1;33m;;;;;\033[1;31m|\033[0;00m   ) :
+ : `=====' \033[1;31m|\033[0;00m_\033[1;31m|\033[0;00m :
+ : usr-OS \033[1;31m;-;\033[0;00m  :
+ : \033[1;32mhack-21\033[0;00m sys :    	   \033[1;34m[\033[1;31m*\033[1;34m]\033[1;37m Tool name :\033[1;33m tempo\033[0;00m
+ `~~~~~~~~~~~~~' 	   \033[1;34m[\033[1;31m*\033[1;34m]\033[1;37m Located in: \033[1;33m/usr/bin/
+
+ \033[1;34m[\033[1;31m¡\033[1;34m]\033[1;37m Caregando...'''))
+playsound('/home/odon/Documentos/VS_C/11.mp3')
+time.sleep(0.5)
+x=input(str('\033[1;34m [\033[1;31m+\033[1;34m]\033[1;37m Digite o nome do país ou provincia >\033[1;36m '))
+time.sleep(0.5)
+print('\033[1;34m [\033[1;31m-\033[1;34m]\033[1;37m Consultando a Metreología para \033[1;36m' + x + '\033[1;37m nas procimas 72 horas...')
+z = (str('Consultando a metreología para '+ x + ' nas próximas setenta e duas hóras... por favor aguarde...'))
+tts = gTTS(z, lang='pt')
+tts.save('tempo.mp3')
+playsound('tempo.mp3')
+#playsound("/home/odon/Documentos/VS_C/aguarde.mp3")
+while True:
+    subprocess.call('curl wttr.in/'+x, shell=True) 
+    value = (str('Estes são os dados previstos para {} nas próximas 72 horas...'.format(x)))
+    other = gTTS(value, lang='pt')
+    other.save('volatel.mp3')
+    playsound('volatel.mp3')
+    break
+
+
+
