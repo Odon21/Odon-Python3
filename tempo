@@ -30,7 +30,6 @@ z = (str('Consultando a metreología para '+ x + ' nas próximas setenta e duas 
 tts = gTTS(z, lang='pt')
 tts.save('tempo.mp3')
 playsound('tempo.mp3')
-#playsound("/home/odon/Documentos/VS_C/aguarde.mp3")
 while True:
     subprocess.call('curl wttr.in/'+x, shell=True) 
     value = (str('Estes são os dados previstos para {} nas próximas 72 horas...'.format(x)))
